@@ -88,7 +88,7 @@
     "flexsearch": "^0.8.143",
     "framer-motion": "^12.10.5",
     "fuse.js": "^7.1.0",
-    "geist": "^1.4.2",
+    "geist": "^1.5.1",
     "input-otp": "^1.4.2",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.344.0",
