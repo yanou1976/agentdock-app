@@ -8,6 +8,11 @@ import type { NextAuthConfig } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 // Simple in-memory user store (replace with database in production)
+// WARNING: In-memory storage will lose all data on server restart
+// and does not scale beyond a single instance. For production:
+// 1. Replace with a database (PostgreSQL, MongoDB, etc.)
+// 2. Use NextAuth database adapters for session/user management
+// 3. Implement proper user model with your ORM
 interface User {
   id: string;
   email: string;
@@ -49,8 +54,10 @@ export async function createUser(
   }
 
   const hashedPassword = await hashPassword(password);
+  
+  // Use crypto.randomUUID() for cryptographically secure ID generation
   const user: User = {
-    id: Math.random().toString(36).substring(7),
+    id: crypto.randomUUID(),
     email,
     password: hashedPassword,
     name

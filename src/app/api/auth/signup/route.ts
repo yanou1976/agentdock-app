@@ -20,7 +20,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate email format
+    // Validate email format (basic validation - client should use HTML5 email input)
+    // For production, consider using a dedicated email validation library
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
