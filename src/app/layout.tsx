@@ -11,6 +11,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { EnvOverrideProvider } from '@/components/env-override-provider';
 import { LayoutContent } from '@/components/layout/layout-content';
 import { PostHogProvider } from '@/components/providers/posthog-provider';
+import { SessionProvider } from '@/components/providers/session-provider';
 import { metadata as sharedMetadata } from '@/lib/config';
 // Import system initialization
 import '@/lib/core/init';
@@ -66,15 +67,17 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <PostHogProvider
-          apiKey={posthogApiKey}
-          apiHost={posthogHost}
-          enabled={analyticsEnabled}
-        >
-          <EnvOverrideProvider>
-            <LayoutContent>{children}</LayoutContent>
-          </EnvOverrideProvider>
-        </PostHogProvider>
+        <SessionProvider>
+          <PostHogProvider
+            apiKey={posthogApiKey}
+            apiHost={posthogHost}
+            enabled={analyticsEnabled}
+          >
+            <EnvOverrideProvider>
+              <LayoutContent>{children}</LayoutContent>
+            </EnvOverrideProvider>
+          </PostHogProvider>
+        </SessionProvider>
         <SpeedInsights />
       </body>
     </html>
