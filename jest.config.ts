@@ -22,7 +22,7 @@ const customJestConfig: Config = {
     '^.+\\.(ts|tsx)$': 'ts-jest'
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!(node-fetch|@upstash/redis|uncrypto|@vercel))'
+    '/node_modules/(?!(node-fetch|@upstash/redis|uncrypto|@vercel|next-auth|@auth))'
   ],
   testMatch: [
     '<rootDir>/tests/**/*.test.ts',
