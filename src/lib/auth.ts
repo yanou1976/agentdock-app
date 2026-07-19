@@ -54,7 +54,7 @@ export async function createUser(
   }
 
   const hashedPassword = await hashPassword(password);
-  
+
   // Use crypto.randomUUID() for cryptographically secure ID generation
   const user: User = {
     id: crypto.randomUUID(),

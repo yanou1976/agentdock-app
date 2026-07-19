@@ -3,14 +3,14 @@
  * Note: Full NextAuth integration tests would require mocking next-auth
  */
 
-import { hash, compare } from 'bcryptjs';
+import { compare, hash } from 'bcryptjs';
 
 describe('Authentication', () => {
   describe('Password hashing', () => {
     it('should hash a password', async () => {
       const password = 'testPassword123';
       const hashed = await hash(password, 10);
-      
+
       expect(hashed).not.toBe(password);
       expect(hashed.length).toBeGreaterThan(0);
     });
@@ -19,7 +19,7 @@ describe('Authentication', () => {
       const password = 'testPassword123';
       const hashed = await hash(password, 10);
       const isValid = await compare(password, hashed);
-      
+
       expect(isValid).toBe(true);
     });
 
@@ -28,7 +28,7 @@ describe('Authentication', () => {
       const wrongPassword = 'wrongPassword456';
       const hashed = await hash(password, 10);
       const isValid = await compare(wrongPassword, hashed);
-      
+
       expect(isValid).toBe(false);
     });
   });

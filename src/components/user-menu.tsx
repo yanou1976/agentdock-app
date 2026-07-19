@@ -5,10 +5,11 @@
 
 'use client';
 
-import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { LogOut, User } from 'lucide-react';
+import { signOut, useSession } from 'next-auth/react';
 
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -18,7 +19,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 export function UserMenu() {
   const { data: session, status } = useSession();
@@ -51,13 +51,14 @@ export function UserMenu() {
     );
   }
 
-  const userInitials = session.user?.name
-    ?.split(' ')
-    .filter((n) => n.length > 0)
-    .map((n) => n[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2) || 'U';
+  const userInitials =
+    session.user?.name
+      ?.split(' ')
+      .filter((n) => n.length > 0)
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2) || 'U';
 
   return (
     <DropdownMenu>
