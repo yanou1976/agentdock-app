@@ -1,0 +1,583 @@
+# Instincts generated from https://github.com/yanou1976/agentdock-app
+# Generated: 2026-07-19T03:47:53.806Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: agentdock-app-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, test, style
+
+## Evidence
+
+- 6 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat: Add user authentication with NextAuth.js, test: Add authentication password hashing tests
+
+---
+id: agentdock-app-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Commit Length
+
+## Action
+
+Keep commit messages concise (~44 characters)
+
+## Evidence
+
+- Average commit message length: 44 chars
+- Based on 6 commits
+
+---
+id: agentdock-app-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: agentdock-app-import-alias
+trigger: "when importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Import Alias
+
+## Action
+
+Use path aliases (@/, ~/) instead of relative imports
+
+## Evidence
+
+- Import analysis shows alias pattern
+- Example: import { x } from '@/lib/x'
+
+---
+id: agentdock-app-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: agentdock-app-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: app, components, lib, types
+
+---
+id: agentdock-app-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: agentdock-app-workflow-feature-development-auth
+trigger: "when doing feature development auth"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Workflow Feature Development Auth
+
+## Action
+
+Follow the feature-development-auth workflow:
+1. Install or update authentication-related dependencies in package.json and pnpm-lock.yaml
+2. Create or update authentication API routes under src/app/api/auth/
+3. Implement or update authentication pages under src/app/auth/
+4. Add or modify authentication-related components (e.g., user menu, session provider)
+5. Update authentication logic in src/lib/auth.ts
+6. Update types in src/types/next-auth.d.ts if needed
+7. Update .env.example for new environment variables
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: package.json, pnpm-lock.yaml, .env.example
+
+---
+id: agentdock-app-workflow-test-and-doc-update-after-feature
+trigger: "when doing test and doc update after feature"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Workflow Test And Doc Update After Feature
+
+## Action
+
+Follow the test-and-doc-update-after-feature workflow:
+1. Add or update tests related to the new or changed feature (e.g., in tests/lib/...)
+2. Update or create documentation files (e.g., docs/authentication.md)
+3. Update configuration for testing if necessary (e.g., jest.config.ts)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: tests/lib/auth.test.ts, jest.config.ts, docs/authentication.md
+
+---
+id: agentdock-app-workflow-bugfix-and-refactor-auth
+trigger: "when doing bugfix and refactor auth"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Workflow Bugfix And Refactor Auth
+
+## Action
+
+Follow the bugfix-and-refactor-auth workflow:
+1. Update authentication API route handlers (e.g., src/app/api/auth/...)
+2. Update authentication UI components or pages
+3. Update authentication logic in src/lib/auth.ts
+4. Update or add documentation regarding the fix or change
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: src/app/api/auth/[...nextauth]/route.ts, src/app/api/auth/signup/route.ts, src/app/auth/signin/page.tsx
+
+---
+id: agentdock-app-workflow-code-formatting-auth-files
+trigger: "when doing code formatting auth files"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/yanou1976/agentdock-app
+---
+
+# Agentdock App Workflow Code Formatting Auth Files
+
+## Action
+
+Follow the code-formatting-auth-files workflow:
+1. Run code formatter on authentication-related pages, components, and tests
+2. Commit all formatting changes
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: src/app/auth/signup/page.tsx, src/components/providers/session-provider.tsx, src/components/user-menu.tsx
+
+---
+id: agentdock-app-instinct-file-naming
+trigger: "When creating a new file in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct File Naming
+
+## Action
+
+Name the file using camelCase convention
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Consistent file names in src/components/user-menu.tsx, src/lib/auth.ts
+
+---
+id: agentdock-app-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in namingConventions.functions
+- TypeScript code in src/lib/auth.ts
+
+---
+id: agentdock-app-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in namingConventions.classes
+
+---
+id: agentdock-app-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in namingConventions.constants
+
+---
+id: agentdock-app-instinct-import-alias
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Import Alias
+
+## Action
+
+Use import aliases instead of relative paths where possible
+
+## Evidence
+
+- Pattern in importStyle: alias
+- Imports in src/components/providers/session-provider.tsx
+
+---
+id: agentdock-app-instinct-export-mixed
+trigger: "When exporting modules or functions"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Export Mixed
+
+## Action
+
+Use both named and default exports as appropriate
+
+## Evidence
+
+- Pattern in exportStyle: mixed
+
+---
+id: agentdock-app-instinct-try-catch-errors
+trigger: "When handling errors in code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Try Catch Errors
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Pattern in errorHandling.style: try-catch
+- Seen in src/lib/auth.ts
+
+---
+id: agentdock-app-instinct-test-location
+trigger: "When adding or updating tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Test Location
+
+## Action
+
+Place test files in the tests/ directory, mirroring the source structure
+
+## Evidence
+
+- Pattern in architecture.testLocation: separate
+- tests/lib/auth.test.ts
+
+---
+id: agentdock-app-instinct-test-after-feature
+trigger: "When a new feature or fix is added"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Test After Feature
+
+## Action
+
+Add or update corresponding tests in tests/lib/
+
+## Evidence
+
+- Workflow: test-and-doc-update-after-feature
+- Commit: test: Add authentication password hashing tests
+
+---
+id: agentdock-app-instinct-update-jest-config
+trigger: "When adding new test files or changing test structure"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Update Jest Config
+
+## Action
+
+Update jest.config.ts as needed
+
+## Evidence
+
+- Workflow: test-and-doc-update-after-feature
+- File: jest.config.ts
+
+---
+id: agentdock-app-instinct-update-docs-after-feature
+trigger: "When a new feature or fix is added"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Update Docs After Feature
+
+## Action
+
+Update or create documentation in docs/authentication.md
+
+## Evidence
+
+- Workflow: test-and-doc-update-after-feature
+- File: docs/authentication.md
+
+---
+id: agentdock-app-instinct-git-conventional-commits
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Git Conventional Commits
+
+## Action
+
+Use conventional commit prefixes: fix, feat, test, style
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples: feat: Add user authentication with NextAuth.js
+
+---
+id: agentdock-app-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Git Commit Length
+
+## Action
+
+Keep commit message length around 44 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: agentdock-app-instinct-feature-development-auth
+trigger: "When someone wants to add or significantly update an authentication-related feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Feature Development Auth
+
+## Action
+
+Follow the feature-development-auth workflow: update dependencies, API routes, pages, components, logic, types, and .env.example
+
+## Evidence
+
+- Workflow: feature-development-auth
+- Commit: feat: Add user authentication with NextAuth.js
+
+---
+id: agentdock-app-instinct-test-and-doc-update-after-feature
+trigger: "When a new feature or fix is added"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Test And Doc Update After Feature
+
+## Action
+
+Follow the test-and-doc-update-after-feature workflow: add/update tests, docs, and test config
+
+## Evidence
+
+- Workflow: test-and-doc-update-after-feature
+- Commit: test: Add authentication password hashing tests
+
+---
+id: agentdock-app-instinct-bugfix-and-refactor-auth
+trigger: "When a bug is found or authentication code needs refactoring"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Bugfix And Refactor Auth
+
+## Action
+
+Follow the bugfix-and-refactor-auth workflow: update API handlers, UI, logic, and docs
+
+## Evidence
+
+- Workflow: bugfix-and-refactor-auth
+- Commit: fix: correct NextAuth v5 route handler wiring and sign-in page
+
+---
+id: agentdock-app-instinct-code-formatting-auth-files
+trigger: "When ensuring code style consistency in authentication-related files"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: yanou1976/agentdock-app
+---
+
+# Agentdock App Instinct Code Formatting Auth Files
+
+## Action
+
+Run code formatter (e.g., Prettier) on auth-related pages, components, and tests
+
+## Evidence
+
+- Workflow: code-formatting-auth-files
+- Commit: style: apply prettier formatting to auth feature files
+
