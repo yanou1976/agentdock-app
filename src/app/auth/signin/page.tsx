@@ -5,10 +5,11 @@
 
 'use client';
 
-import { signIn } from 'next-auth/react';
+import { Suspense, useState } from 'react';
+import type { Route } from 'next';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { signIn } from 'next-auth/react';
 import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
@@ -16,7 +17,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-export default function SignInPage() {
+function SignInForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState('');
@@ -37,10 +38,10 @@ export default function SignInPage() {
       });
 
       if (result?.error) {
-        toast.error(result.error);
+        toast.error('Invalid email or password');
       } else if (result?.ok) {
         toast.success('Signed in successfully');
-        router.push(callbackUrl);
+        router.push(callbackUrl as Route);
         router.refresh();
       }
     } catch (error) {
@@ -105,5 +106,19 @@ export default function SignInPage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+export default function SignInPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center p-4">
+          Loading...
+        </div>
+      }
+    >
+      <SignInForm />
+    </Suspense>
   );
 }
